@@ -9,5 +9,9 @@ form {
 }
 
 .card {
-  min-height: 325px;
+  /*height: 356px;*/
+}
+
+input#searchQuery {
+  width: 400px;
 }

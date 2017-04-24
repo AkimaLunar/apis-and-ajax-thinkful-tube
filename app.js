@@ -1,11 +1,11 @@
 var DATA;
 var resultsElement = '#search-container';
 function init() {
-  console.log('YT authenticating')
+  console.log('YouTube authenticating')
   gapi.client.setApiKey('AIzaSyCcOL-DY65TugTefc9at8Hlwh5jLADIfNs');
   gapi.client.load("youtube", "v3", function(){
-    console.log('YT ready!')
-    $('#search-button').attr('disabled', false);
+    console.log('YouTube ready!')
+    $('#search-button').attr('disabled', false).removeClass('is-loading');
   });
 }
 
@@ -17,23 +17,32 @@ function render(data, element){
     if (title.length > 45) {
       title = title.substr(0, 45) + '…';
     }
+    var channel = item.snippet.channelTitle;
+    var channelUrl = 'https://www.youtube.com/channel/' + item.snippet.channelId;
     var thumbnailUrl = item.snippet.thumbnails.medium.url;
     var link = 'https://www.youtube.com/watch?v=' + item.id.videoId;
     var itemHtml = (
         '<div class="column is-one-quarter">' +
-        '<a href="'+ link + '" target="_blank">' +
-        '<div class="card is-3">' +
-        '<div class="card-image">' +
-        '<figure class="image is-4by3">' +
-        '<img src="' + thumbnailUrl + '" alt="Image"> '+
-        '</figure>' +
-        '</div>' +
-        '<div class="card-content">' +
-        '<small>'+ published.toDateString()+'</small>'+
-        '<h3 class="subtitle">' + title + '</h3>'+
-        '</div>' +
-        '</div> '+
-        '</a> ' +
+          '<a href="'+ link + '" target="_blank">' +
+            '<div class="card is-3">' +
+              '<div class="card-image">' +
+                '<figure class="image is-4by3">' +
+                  '<img src="' + thumbnailUrl + '" alt="Image"> '+
+                '</figure>' +
+              '</div>' +
+              '<div class="card-content">' +
+                '<small>'+ published.toDateString()+'</small>'+
+                '<h3 class="subtitle">' + title + '</h3>'+
+              '</div>' +
+              // '<footer class="card-footer">' +
+              //   '<p class="card-footer-item">' +
+              //     '<span>' +
+              //         'More from <a href="' + channelUrl + '">' + channel + '</a>' +
+              //     '</span>' +
+              //   '</p>' +
+              // '</footer>' +
+            '</div> '+
+          '</a> ' +
         '</div>'
     )
     return itemHtml;
