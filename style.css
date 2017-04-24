@@ -1,0 +1,13 @@
+header {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+}
+
+.card {
+  min-height: 325px;
+}

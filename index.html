@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="title">Search YouTube Videos</h1>
+      <h2 class="subtitle">Using YouTube Data API</h2>
+      <form action="" id="search">
+        <div class="field has-addons">
+        <p class="control has-icons-left">
+          <input class="input" type="text" placeholder="Find a video" id="searchQuery">
+            <span class="icon is-small is-left">
+              <i class="fa fa-search"></i>
+            </span>
+        </p>
+        <p class="control">
+        <button type="submit" class="button is-primary" id="search-button" disabled>
+          Search
+        </button>
+        </p>
+        </div>
+      </form>
+    </header>
+  </div>
+    <div class="container">
+    <div class="columns is-multiline is-mobile" id="search-container">
+    </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+
+</body>
+</html>
