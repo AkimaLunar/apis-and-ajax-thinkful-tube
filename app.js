@@ -63,3 +63,7 @@ $('#search').on('submit', function(event){
   var currentQuery = encodeURIComponent($('#searchQuery').val()).replace(/%20/g, '+');
   search(currentQuery);
 })
+
+// [ ] Make the images clickable, playing them in a lightbox
+// [ ] Show a link for more from the channel that each video came from
+// [ ] Show buttons to get more results (using the previous and next page links from the JSON)
