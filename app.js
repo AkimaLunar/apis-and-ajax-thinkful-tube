@@ -19,6 +19,7 @@ function render(data, element){
     }
     var channel = item.snippet.channelTitle;
     var channelUrl = 'https://www.youtube.com/channel/' + item.snippet.channelId;
+    var channelHtml = 'More from <a href="'+ channelUrl + '" target="_blank">' + channel + '</a>';
     var thumbnailUrl = item.snippet.thumbnails.medium.url;
     var link = 'https://www.youtube.com/watch?v=' + item.id.videoId;
     var itemHtml = (
@@ -34,13 +35,13 @@ function render(data, element){
                 '<small>'+ published.toDateString()+'</small>'+
                 '<h3 class="subtitle">' + title + '</h3>'+
               '</div>' +
-              // '<footer class="card-footer">' +
-              //   '<p class="card-footer-item">' +
-              //     '<span>' +
-              //         'More from <a href="' + channelUrl + '">' + channel + '</a>' +
-              //     '</span>' +
-              //   '</p>' +
-              // '</footer>' +
+              '<footer class="card-footer">' +
+                '<p class="card-footer-item">' +
+                  '<span>' +
+                  'By ' + channel +
+                  '</span>' + 
+                '</p>' +
+              '</footer>' +
             '</div> '+
           '</a> ' +
         '</div>'
@@ -73,6 +74,7 @@ $('#search').on('submit', function(event){
   search(currentQuery);
 })
 
+// Areas of improvement
 // [ ] Make the images clickable, playing them in a lightbox
 // [ ] Show a link for more from the channel that each video came from
 // [ ] Show buttons to get more results (using the previous and next page links from the JSON)
